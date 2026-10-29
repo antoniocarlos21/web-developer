@@ -1,0 +1,1961 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#0b0b0a">
+  <meta name="description" content="Antonio Carlos — desenvolvimento web, portfólios digitais e experiências online sofisticadas.">
+  <title>Antonio Carlos® — Digital Atelier</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #0b0b0a;
+      --surface: #111110;
+      --surface-2: #171715;
+      --text: #f0eee8;
+      --muted: #8d8b83;
+      --line: rgba(240,238,232,.12);
+      --gold: #c7ad83;
+      --gold-light: #e1d0b2;
+      --serif: "Playfair Display", Georgia, serif;
+      --sans: "DM Sans", Arial, sans-serif;
+      --container: 1240px;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 90px;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--sans);
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    body::selection {
+      background: var(--gold);
+      color: var(--bg);
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button, input, textarea, select {
+      font: inherit;
+    }
+
+    button, a {
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+    .container {
+      width: min(var(--container), calc(100% - 100px));
+      margin: 0 auto;
+    }
+
+    .gold { color: var(--gold); }
+
+    .eyebrow {
+      display: flex;
+      align-items: center;
+      gap: 13px;
+      color: var(--muted);
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 2.6px;
+      text-transform: uppercase;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 28px;
+      height: 1px;
+      background: var(--gold);
+    }
+
+    .section-title {
+      margin-top: 24px;
+      font-family: var(--serif);
+      font-size: clamp(42px, 5.6vw, 75px);
+      font-weight: 400;
+      line-height: 1.04;
+      letter-spacing: -1.8px;
+    }
+
+    .section-title em,
+    .hero-title em {
+      color: var(--gold);
+      font-weight: 400;
+    }
+
+    .section-copy {
+      max-width: 490px;
+      margin-top: 22px;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 2;
+    }
+
+    .line {
+      height: 1px;
+      background: var(--line);
+    }
+
+    .button {
+      display: inline-flex;
+      min-height: 52px;
+      align-items: center;
+      justify-content: center;
+      gap: 22px;
+      padding: 0 22px;
+      border: 1px solid var(--gold);
+      background: var(--gold);
+      color: #11100e;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 1.3px;
+      text-transform: uppercase;
+      transition: background .3s, color .3s, border-color .3s;
+      cursor: pointer;
+    }
+
+    .button:hover {
+      background: transparent;
+      color: var(--gold-light);
+    }
+
+    .button .arrow {
+      font-size: 17px;
+      transition: transform .3s;
+    }
+
+    .button:hover .arrow {
+      transform: translate(4px, -3px);
+    }
+
+    .button-outline {
+      background: transparent;
+      color: var(--text);
+      border-color: var(--line);
+    }
+
+    .button-outline:hover {
+      border-color: var(--gold);
+      color: var(--gold);
+    }
+
+    /* PROGRESS BAR */
+
+    .progress {
+      position: fixed;
+      z-index: 100;
+      top: 0;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--gold);
+    }
+
+    /* HEADER */
+
+    .header {
+      position: absolute;
+      z-index: 50;
+      top: 0;
+      left: 0;
+      width: 100%;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .nav {
+      display: flex;
+      min-height: 88px;
+      align-items: center;
+      justify-content: space-between;
+      gap: 25px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 13px;
+    }
+
+    .brand-mark {
+      display: grid;
+      width: 39px;
+      height: 39px;
+      place-items: center;
+      border: 1px solid rgba(199,173,131,.7);
+      border-radius: 50%;
+      color: var(--gold);
+      font-family: var(--serif);
+      font-size: 17px;
+    }
+
+    .brand-name {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    .brand-caption {
+      margin-top: 5px;
+      color: var(--muted);
+      font-size: 9px;
+      letter-spacing: 1.8px;
+      text-transform: uppercase;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+    }
+
+    .nav-links a {
+      color: #aaa89f;
+      font-size: 11px;
+      transition: color .25s;
+    }
+
+    .nav-links a:hover {
+      color: var(--gold);
+    }
+
+    .nav-links .nav-contact {
+      padding: 13px 17px;
+      border: 1px solid var(--line);
+      color: var(--text);
+    }
+
+    .nav-links .nav-contact:hover {
+      border-color: var(--gold);
+      color: var(--gold);
+    }
+
+    .menu-toggle {
+      display: none;
+      width: 43px;
+      height: 43px;
+      border: 1px solid var(--line);
+      background: transparent;
+      color: var(--text);
+      cursor: pointer;
+    }
+
+    /* HERO */
+
+    .hero {
+      position: relative;
+      display: flex;
+      min-height: 790px;
+      align-items: center;
+      padding: 145px 0 85px;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      position: absolute;
+      top: 100px;
+      right: -240px;
+      width: 700px;
+      height: 700px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(199,173,131,.09), transparent 67%);
+      content: "";
+      pointer-events: none;
+    }
+
+    .hero-grid {
+      position: relative;
+      display: grid;
+      width: 100%;
+      grid-template-columns: 1.05fr .8fr;
+      align-items: center;
+      gap: clamp(45px, 9vw, 125px);
+    }
+
+    .hero-kicker {
+      margin-bottom: 30px;
+    }
+
+    .hero-title {
+      max-width: 750px;
+      font-family: var(--serif);
+      font-size: clamp(58px, 7.4vw, 100px);
+      font-weight: 400;
+      line-height: .99;
+      letter-spacing: -3px;
+    }
+
+    .hero-title span {
+      display: block;
+    }
+
+    .hero-description {
+      max-width: 425px;
+      margin-top: 30px;
+      color: #a3a198;
+      font-size: 13px;
+      line-height: 2;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 13px;
+      margin-top: 35px;
+    }
+
+    .hero-note {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-top: 37px;
+      color: var(--muted);
+      font-size: 10px;
+      letter-spacing: .7px;
+    }
+
+    .status-dot {
+      position: relative;
+      width: 7px;
+      height: 7px;
+      flex-shrink: 0;
+      border-radius: 50%;
+      background: var(--gold);
+    }
+
+    .status-dot::after {
+      position: absolute;
+      inset: -4px;
+      border: 1px solid rgba(199,173,131,.45);
+      border-radius: 50%;
+      content: "";
+      animation: pulse 2.2s infinite;
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(.7); opacity: 1; }
+      100% { transform: scale(1.9); opacity: 0; }
+    }
+
+    .hero-photo-wrap {
+      position: relative;
+      width: 100%;
+      max-width: 440px;
+      justify-self: end;
+    }
+
+    .hero-photo-wrap::before {
+      position: absolute;
+      z-index: -1;
+      top: 20px;
+      right: -20px;
+      bottom: -20px;
+      left: 20px;
+      border: 1px solid rgba(199,173,131,.45);
+      content: "";
+      transition: transform .5s;
+    }
+
+    .hero-photo-wrap:hover::before {
+      transform: translate(7px, -7px);
+    }
+
+    .photo-frame {
+      position: relative;
+      aspect-ratio: .79;
+      overflow: hidden;
+      background: #22211d;
+    }
+
+    .photo-frame::after {
+      position: absolute;
+      inset: 0;
+      border: 1px solid rgba(255,255,255,.08);
+      background: linear-gradient(180deg, transparent 60%, rgba(0,0,0,.28));
+      content: "";
+      pointer-events: none;
+    }
+
+    .portrait {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 30%;
+      filter: saturate(.72);
+      transition: transform .9s cubic-bezier(.2,.7,.2,1), filter .5s;
+    }
+
+    .hero-photo-wrap:hover .portrait {
+      transform: scale(1.04);
+      filter: saturate(.95);
+    }
+
+    .photo-placeholder {
+      display: flex;
+      width: 100%;
+      height: 100%;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      gap: 14px;
+      padding: 25px;
+      color: var(--gold);
+      text-align: center;
+    }
+
+    .photo-placeholder strong {
+      font-family: var(--serif);
+      font-size: 60px;
+      font-weight: 400;
+    }
+
+    .photo-placeholder span {
+      color: var(--muted);
+      font-size: 9px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    .photo-caption {
+      display: flex;
+      justify-content: space-between;
+      gap: 15px;
+      padding-top: 16px;
+      color: var(--muted);
+      font-size: 9px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+    }
+
+    .photo-caption span:last-child {
+      color: var(--gold);
+    }
+
+    /* MARQUEE */
+
+    .marquee {
+      overflow: hidden;
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      background: #0e0e0d;
+    }
+
+    .marquee-track {
+      display: flex;
+      width: max-content;
+      align-items: center;
+      gap: 40px;
+      padding: 25px 0;
+      animation: marquee 35s linear infinite;
+    }
+
+    .marquee-track span {
+      color: #aaa89f;
+      font-family: var(--serif);
+      font-size: 20px;
+      white-space: nowrap;
+    }
+
+    .marquee-track .star {
+      color: var(--gold);
+      font-size: 13px;
+    }
+
+    @keyframes marquee {
+      to { transform: translateX(-50%); }
+    }
+
+    /* ABOUT */
+
+    .about {
+      padding: 145px 0;
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: .8fr 1fr;
+      gap: clamp(50px, 10vw, 150px);
+    }
+
+    .about-index {
+      margin-top: 45px;
+      padding-top: 22px;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 11px;
+      line-height: 1.9;
+    }
+
+    .about-copy p {
+      margin-bottom: 22px;
+      color: #aaa89f;
+      font-size: 13px;
+      line-height: 2.1;
+    }
+
+    .about-copy strong {
+      color: var(--text);
+      font-weight: 600;
+    }
+
+    .education {
+      display: flex;
+      gap: 17px;
+      margin-top: 35px;
+      padding: 24px 0;
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .education-mark {
+      display: grid;
+      width: 42px;
+      height: 42px;
+      flex-shrink: 0;
+      place-items: center;
+      border: 1px solid rgba(199,173,131,.45);
+      color: var(--gold);
+      font-family: var(--serif);
+      font-size: 18px;
+    }
+
+    .education strong {
+      font-size: 12px;
+      font-weight: 500;
+    }
+
+    .education p {
+      margin: 7px 0 0;
+      font-size: 11px;
+      line-height: 1.8;
+    }
+
+    /* SERVICES */
+
+    .services {
+      padding: 125px 0;
+      background: var(--surface);
+    }
+
+    .section-header {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 40px;
+      margin-bottom: 65px;
+    }
+
+    .section-header .section-copy {
+      max-width: 340px;
+      margin-bottom: 6px;
+    }
+
+    .service-list {
+      border-top: 1px solid var(--line);
+    }
+
+    .service {
+      display: grid;
+      grid-template-columns: 65px 1fr 1.05fr 30px;
+      align-items: center;
+      gap: 25px;
+      padding: 32px 0;
+      border-bottom: 1px solid var(--line);
+      transition: padding .35s, background .35s;
+    }
+
+    .service:hover {
+      padding-right: 13px;
+      padding-left: 13px;
+      background: rgba(199,173,131,.025);
+    }
+
+    .service-number {
+      color: var(--gold);
+      font-family: var(--serif);
+      font-size: 18px;
+    }
+
+    .service h3 {
+      font-family: var(--serif);
+      font-size: clamp(23px, 2.8vw, 35px);
+      font-weight: 400;
+    }
+
+    .service p {
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.9;
+    }
+
+    .service-arrow {
+      color: var(--gold);
+      font-size: 21px;
+      transition: transform .3s;
+    }
+
+    .service:hover .service-arrow {
+      transform: translate(4px, -4px);
+    }
+
+    /* HOSTING */
+
+    .hosting {
+      padding: 130px 0;
+    }
+
+    .hosting-panel {
+      display: grid;
+      grid-template-columns: 1fr .8fr;
+      gap: clamp(45px, 8vw, 110px);
+      padding: clamp(32px, 6vw, 80px);
+      border: 1px solid var(--line);
+      background:
+        radial-gradient(ellipse at 0% 100%, rgba(199,173,131,.09), transparent 45%),
+        #10100f;
+    }
+
+    .hosting .section-title em {
+      color: var(--gold);
+    }
+
+    .hosting-list {
+      border-top: 1px solid var(--line);
+    }
+
+    .hosting-item {
+      display: flex;
+      gap: 17px;
+      padding: 23px 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .hosting-item > span {
+      color: var(--gold);
+      font-family: var(--serif);
+      font-size: 15px;
+    }
+
+    .hosting-item strong {
+      font-size: 12px;
+      font-weight: 500;
+    }
+
+    .hosting-item p {
+      margin-top: 8px;
+      color: var(--muted);
+      font-size: 11px;
+      line-height: 1.8;
+    }
+
+    .hosting-note {
+      margin-top: 20px;
+      color: var(--muted);
+      font-size: 10px;
+      line-height: 1.8;
+    }
+
+    /* PROJECTS */
+
+    .portfolio {
+      padding: 20px 0 145px;
+    }
+
+    .project-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 55px 28px;
+    }
+
+    .project-card {
+      cursor: default;
+    }
+
+    .project-art {
+      position: relative;
+      display: grid;
+      min-height: 330px;
+      place-items: center;
+      overflow: hidden;
+      background: #1b1b18;
+    }
+
+    .project-art.taupe { background: #28241e; }
+    .project-art.stone { background: #20201d; }
+    .project-art.olive { background: #1c211b; }
+
+    .art-orb {
+      position: absolute;
+      top: -90px;
+      right: -60px;
+      width: 270px;
+      height: 270px;
+      border: 1px solid rgba(199,173,131,.3);
+      border-radius: 50%;
+      transition: transform .8s;
+    }
+
+    .art-orb::after {
+      position: absolute;
+      inset: 25px;
+      border: 1px solid rgba(199,173,131,.18);
+      border-radius: 50%;
+      content: "";
+    }
+
+    .project-card:hover .art-orb {
+      transform: scale(1.18) rotate(20deg);
+    }
+
+    .mock-site {
+      position: relative;
+      z-index: 1;
+      width: 72%;
+      min-height: 220px;
+      padding: 27px;
+      background: #e9e5dc;
+      color: #1b1a17;
+      box-shadow: 0 25px 70px rgba(0,0,0,.28);
+      transition: transform .5s;
+    }
+
+    .project-card:hover .mock-site {
+      transform: translateY(-8px);
+    }
+
+    .mock-top {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      font-size: 7px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+    }
+
+    .mock-title {
+      margin-top: 35px;
+      font-family: var(--serif);
+      font-size: clamp(28px, 3.5vw, 43px);
+      font-weight: 400;
+      line-height: 1.02;
+    }
+
+    .mock-title em {
+      color: #8a7657;
+    }
+
+    .mock-rule {
+      width: 40px;
+      height: 1px;
+      margin-top: 19px;
+      background: #8a7657;
+    }
+
+    .mock-text {
+      max-width: 190px;
+      margin-top: 15px;
+      color: #777168;
+      font-size: 8px;
+      line-height: 1.8;
+    }
+
+    .project-meta {
+      display: flex;
+      align-items: start;
+      justify-content: space-between;
+      gap: 18px;
+      padding-top: 19px;
+    }
+
+    .project-meta h3 {
+      font-family: var(--serif);
+      font-size: 24px;
+      font-weight: 400;
+    }
+
+    .project-meta p {
+      margin-top: 8px;
+      color: var(--muted);
+      font-size: 11px;
+    }
+
+    .project-label {
+      padding: 8px 10px;
+      border: 1px solid var(--line);
+      color: var(--gold);
+      font-size: 8px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    .portfolio-note {
+      margin-top: 35px;
+      color: var(--muted);
+      font-size: 11px;
+      line-height: 1.9;
+    }
+
+    /* PROCESS */
+
+    .process {
+      padding: 120px 0;
+      border-top: 1px solid var(--line);
+      background: #0e0e0d;
+    }
+
+    .process-grid {
+      display: grid;
+      grid-template-columns: .8fr 1fr;
+      gap: 90px;
+    }
+
+    .steps {
+      border-top: 1px solid var(--line);
+    }
+
+    .step {
+      display: grid;
+      grid-template-columns: 45px 1fr;
+      gap: 16px;
+      padding: 23px 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .step > span {
+      color: var(--gold);
+      font-family: var(--serif);
+      font-size: 18px;
+    }
+
+    .step h3 {
+      font-size: 12px;
+      font-weight: 600;
+    }
+
+    .step p {
+      margin-top: 8px;
+      color: var(--muted);
+      font-size: 11px;
+      line-height: 1.9;
+    }
+
+    /* CONTACT */
+
+    .contact {
+      position: relative;
+      padding: 130px 0;
+      overflow: hidden;
+    }
+
+    .contact::after {
+      position: absolute;
+      right: -200px;
+      bottom: -350px;
+      width: 600px;
+      height: 600px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(199,173,131,.08), transparent 68%);
+      content: "";
+      pointer-events: none;
+    }
+
+    .contact-grid {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: .9fr 1fr;
+      gap: clamp(45px, 9vw, 120px);
+    }
+
+    .contact-email {
+      display: inline-block;
+      margin-top: 35px;
+      padding-bottom: 7px;
+      border-bottom: 1px solid rgba(199,173,131,.5);
+      color: var(--gold);
+      font-family: var(--serif);
+      font-size: clamp(17px, 2vw, 23px);
+      overflow-wrap: anywhere;
+      transition: color .25s;
+    }
+
+    .contact-email:hover {
+      color: var(--gold-light);
+    }
+
+    .contact-form {
+      padding: 32px;
+      border: 1px solid var(--line);
+      background: #10100f;
+    }
+
+    .form-heading {
+      margin-bottom: 25px;
+      font-family: var(--serif);
+      font-size: 27px;
+      font-weight: 400;
+    }
+
+    .field {
+      margin-bottom: 19px;
+    }
+
+    .field label {
+      display: block;
+      margin-bottom: 9px;
+      color: #c4c1b8;
+      font-size: 10px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    .field input,
+    .field select,
+    .field textarea {
+      display: block;
+      width: 100%;
+      border: 1px solid #33332e;
+      border-radius: 0;
+      outline: none;
+      background: #151513;
+      color: var(--text);
+      font-size: 12px;
+      transition: border-color .25s;
+    }
+
+    .field input,
+    .field select {
+      min-height: 48px;
+      padding: 0 13px;
+    }
+
+    .field textarea {
+      min-height: 120px;
+      padding: 13px;
+      resize: vertical;
+      line-height: 1.7;
+    }
+
+    .field input:focus,
+    .field select:focus,
+    .field textarea:focus {
+      border-color: var(--gold);
+    }
+
+    .field input::placeholder,
+    .field textarea::placeholder {
+      color: #68675f;
+    }
+
+    .field select {
+      color-scheme: dark;
+    }
+
+    .form-submit {
+      width: 100%;
+      margin-top: 5px;
+    }
+
+    .form-note {
+      margin-top: 14px;
+      color: var(--muted);
+      font-size: 10px;
+      line-height: 1.8;
+    }
+
+    .form-status {
+      display: none;
+      margin-top: 15px;
+      padding: 13px;
+      border: 1px solid rgba(199,173,131,.4);
+      color: var(--gold-light);
+      font-size: 11px;
+      line-height: 1.8;
+    }
+
+    .form-status.show {
+      display: block;
+    }
+
+    /* FOOTER */
+
+    .footer {
+      padding: 34px 0;
+      border-top: 1px solid var(--line);
+      background: #080807;
+    }
+
+    .footer-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 25px;
+    }
+
+    .footer-name {
+      font-family: var(--serif);
+      font-size: 22px;
+    }
+
+    .footer-copy {
+      margin-top: 5px;
+      color: var(--muted);
+      font-size: 10px;
+      line-height: 1.8;
+    }
+
+    .footer-right {
+      display: flex;
+      align-items: center;
+      gap: 23px;
+    }
+
+    .footer-right a {
+      color: #aaa89f;
+      font-size: 10px;
+      transition: color .25s;
+    }
+
+    .footer-right a:hover {
+      color: var(--gold);
+    }
+
+    /* REVEAL */
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(25px);
+      transition: opacity .8s ease, transform .8s cubic-bezier(.2,.7,.2,1);
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .delay-1 { transition-delay: .1s; }
+    .delay-2 { transition-delay: .2s; }
+
+    /* BACK TO TOP */
+
+    .back-top {
+      position: fixed;
+      z-index: 30;
+      right: 24px;
+      bottom: 24px;
+      display: grid;
+      width: 44px;
+      height: 44px;
+      place-items: center;
+      border: 1px solid var(--line);
+      background: rgba(17,17,16,.92);
+      color: var(--gold);
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(10px);
+      transition: opacity .3s, visibility .3s, transform .3s, border-color .3s;
+      cursor: pointer;
+    }
+
+    .back-top.visible {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+
+    .back-top:hover {
+      border-color: var(--gold);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        scroll-behavior: auto !important;
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: .01ms !important;
+      }
+
+      .reveal {
+        opacity: 1;
+        transform: none;
+      }
+    }
+
+    /* RESPONSIVO */
+
+    @media (max-width: 900px) {
+      .container {
+        width: calc(100% - 52px);
+      }
+
+      .hero {
+        min-height: auto;
+        padding-top: 140px;
+      }
+
+      .hero-grid {
+        grid-template-columns: 1fr .8fr;
+        gap: 35px;
+      }
+
+      .hero-title {
+        font-size: clamp(52px, 7.5vw, 74px);
+        letter-spacing: -2px;
+      }
+
+      .service {
+        grid-template-columns: 35px 1fr 1fr 20px;
+        gap: 15px;
+      }
+
+      .hosting-panel {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+
+      .process-grid {
+        gap: 45px;
+      }
+
+      .contact-grid {
+        gap: 35px;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .container {
+        width: calc(100% - 40px);
+      }
+
+      .nav {
+        min-height: 75px;
+      }
+
+      .menu-toggle {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        gap: 5px;
+      }
+
+      .menu-toggle span {
+        display: block;
+        width: 17px;
+        height: 1px;
+        background: var(--text);
+        transition: transform .25s;
+      }
+
+      .menu-toggle[aria-expanded="true"] span:first-child {
+        transform: translateY(3px) rotate(45deg);
+      }
+
+      .menu-toggle[aria-expanded="true"] span:last-child {
+        transform: translateY(-3px) rotate(-45deg);
+      }
+
+      .nav-links {
+        position: absolute;
+        top: 74px;
+        right: 20px;
+        left: 20px;
+        display: none;
+        align-items: stretch;
+        flex-direction: column;
+        gap: 0;
+        padding: 10px 20px;
+        border: 1px solid var(--line);
+        background: #111110;
+      }
+
+      .nav-links.open {
+        display: flex;
+      }
+
+      .nav-links a {
+        padding: 17px 0;
+        border-bottom: 1px solid var(--line);
+      }
+
+      .nav-links .nav-contact {
+        padding: 17px 0;
+        border: 0;
+      }
+
+      .hero {
+        padding: 120px 0 65px;
+      }
+
+      .hero-grid {
+        grid-template-columns: 1fr;
+        gap: 45px;
+      }
+
+      .hero-title {
+        font-size: clamp(55px, 13.5vw, 76px);
+        letter-spacing: -2px;
+      }
+
+      .hero-description {
+        margin-top: 23px;
+      }
+
+      .hero-photo-wrap {
+        width: calc(100% - 15px);
+        max-width: 430px;
+        justify-self: center;
+      }
+
+      .photo-frame {
+        aspect-ratio: .9;
+      }
+
+      .about,
+      .services,
+      .hosting,
+      .process,
+      .contact {
+        padding: 85px 0;
+      }
+
+      .about-grid,
+      .process-grid,
+      .contact-grid {
+        grid-template-columns: 1fr;
+        gap: 38px;
+      }
+
+      .section-title {
+        font-size: clamp(42px, 11vw, 57px);
+        letter-spacing: -1.2px;
+      }
+
+      .about-index {
+        margin-top: 25px;
+      }
+
+      .section-header {
+        align-items: start;
+        flex-direction: column;
+        gap: 14px;
+        margin-bottom: 40px;
+      }
+
+      .service {
+        grid-template-columns: 28px 1fr 20px;
+        gap: 12px;
+        padding: 24px 0;
+      }
+
+      .service h3 {
+        font-size: 25px;
+      }
+
+      .service p {
+        grid-column: 2;
+        grid-row: 2;
+      }
+
+      .service-arrow {
+        grid-column: 3;
+        grid-row: 1;
+      }
+
+      .hosting-panel {
+        gap: 35px;
+        padding: 28px 21px;
+      }
+
+      .portfolio {
+        padding: 0 0 90px;
+      }
+
+      .project-grid {
+        grid-template-columns: 1fr;
+        gap: 35px;
+      }
+
+      .project-art {
+        min-height: 290px;
+      }
+
+      .mock-site {
+        width: 78%;
+        padding: 24px;
+      }
+
+      .contact-form {
+        padding: 23px 18px;
+      }
+
+      .footer-inner {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .footer-right {
+        flex-wrap: wrap;
+      }
+
+      .back-top {
+        right: 15px;
+        bottom: 15px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="progress" id="progress"></div>
+
+  <header class="header">
+    <nav class="nav container" aria-label="Navegação principal">
+      <a class="brand" href="#inicio" aria-label="Antonio Carlos, início">
+        <span class="brand-mark">AC</span>
+        <span>
+          <span class="brand-name">Antonio Carlos</span>
+          <span class="brand-caption">Digital Atelier</span>
+        </span>
+      </a>
+
+      <button
+        class="menu-toggle"
+        id="menuToggle"
+        aria-label="Abrir menu"
+        aria-expanded="false"
+        aria-controls="navLinks"
+      >
+        <span></span><span></span>
+      </button>
+
+      <div class="nav-links" id="navLinks">
+        <a href="#sobre">Sobre</a>
+        <a href="#servicos">Serviços</a>
+        <a href="#portfolio">Projetos</a>
+        <a class="nav-contact" href="#contato">Contato ↗</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <!-- ABERTURA -->
+    <section class="hero container" id="inicio">
+      <div class="hero-grid">
+        <div class="hero-copy reveal">
+          <div class="eyebrow hero-kicker">Web development · Front-end</div>
+
+          <h1 class="hero-title">
+            <span>Digital,</span>
+            <span>by <em>design.</em></span>
+          </h1>
+
+          <p class="hero-description">
+            Sou Antonio Carlos. Desenvolvo sites e portfólios digitais
+            que combinam estética refinada, tecnologia e funcionalidade.
+            Cada detalhe tem um propósito. Cada projeto, uma identidade.
+          </p>
+
+          <div class="hero-actions">
+            <a class="button" href="#portfolio">
+              Explorar projetos <span class="arrow">↗</span>
+            </a>
+            <a class="button button-outline" href="#contato">
+              Fale comigo
+            </a>
+          </div>
+
+          <div class="hero-note">
+            <span class="status-dot"></span>
+            <span>Desenvolvimento web · HTML, CSS & JavaScript</span>
+          </div>
+        </div>
+
+        <div class="hero-photo-wrap reveal delay-1">
+          <div class="photo-frame">
+            <img
+              class="portrait"
+              src="minha-foto.jpg"
+              alt="Retrato profissional de Antonio Carlos"
+              onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+            >
+
+            <div class="photo-placeholder" style="display:none">
+              <strong>AC.</strong>
+              <span>Adicione sua fotografia</span>
+            </div>
+          </div>
+
+          <div class="photo-caption">
+            <span>Antonio Carlos</span>
+            <span>Est. 2024 · Digital</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAIXA ANIMADA -->
+    <div class="marquee" aria-label="Especialidades">
+      <div class="marquee-track">
+        <span>Digital experiences</span><span class="star">✳</span>
+        <span>Front-end development</span><span class="star">✳</span>
+        <span>Personal portfolios</span><span class="star">✳</span>
+        <span>Minimalist design</span><span class="star">✳</span>
+        <span>Digital experiences</span><span class="star">✳</span>
+        <span>Front-end development</span><span class="star">✳</span>
+        <span>Personal portfolios</span><span class="star">✳</span>
+        <span>Minimalist design</span><span class="star">✳</span>
+      </div>
+    </div>
+
+    <!-- SOBRE -->
+    <section class="about container" id="sobre">
+      <div class="about-grid">
+        <div class="reveal">
+          <div class="eyebrow">01 / Sobre mim</div>
+          <h2 class="section-title">
+            Duas áreas.<br>Uma mente <em>curiosa.</em>
+          </h2>
+
+          <p class="about-index">
+            Medicina, tecnologia e a busca constante por soluções
+            que sejam tão funcionais quanto visualmente bem construídas.
+          </p>
+        </div>
+
+        <div class="about-copy reveal delay-1">
+          <p>
+            Minha trajetória une <strong>Medicina e desenvolvimento web</strong>.
+            Como estudante de Medicina, valorizo o raciocínio analítico,
+            a organização e a atenção aos detalhes. Na tecnologia, aplico
+            essa perspectiva para criar experiências digitais.
+          </p>
+
+          <p>
+            Trabalho com <strong>HTML, CSS e JavaScript</strong>, desenvolvendo
+            páginas responsivas, interfaces interativas e apresentações
+            profissionais para pessoas, marcas e negócios.
+          </p>
+
+          <p>
+            Meu objetivo é entregar sites que transmitam confiança,
+            tenham uma navegação intuitiva e representem a identidade
+            de quem está por trás de cada projeto.
+          </p>
+
+          <div class="education">
+            <div class="education-mark">AC</div>
+            <div>
+              <strong>Formação técnica em Informática</strong>
+              <p>
+                Instituto Federal da Bahia — IFBA.<br>
+                Formação técnica e fundamentos de tecnologia.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SERVIÇOS -->
+    <section class="services" id="servicos">
+      <div class="container">
+        <div class="section-header reveal">
+          <div>
+            <div class="eyebrow">02 / Serviços</div>
+            <h2 class="section-title">Precisão em cada <em>detalhe.</em></h2>
+          </div>
+          <p class="section-copy">
+            Soluções digitais sob medida para apresentar seu trabalho,
+            fortalecer sua marca e tornar sua presença online mais profissional.
+          </p>
+        </div>
+
+        <div class="service-list">
+          <article class="service reveal">
+            <span class="service-number">01</span>
+            <h3>Sites institucionais</h3>
+            <p>
+              Uma presença digital consistente para empresas, profissionais
+              autônomos e negócios que desejam apresentar seus serviços.
+            </p>
+            <span class="service-arrow">↗</span>
+          </article>
+
+          <article class="service reveal">
+            <span class="service-number">02</span>
+            <h3>Portfólios digitais</h3>
+            <p>
+              Uma apresentação pessoal sofisticada para exibir sua trajetória,
+              competências, projetos e formas de contato.
+            </p>
+            <span class="service-arrow">↗</span>
+          </article>
+
+          <article class="service reveal">
+            <span class="service-number">03</span>
+            <h3>Landing pages</h3>
+            <p>
+              Páginas objetivas, com hierarquia visual clara e foco
+              em divulgar um serviço, produto ou projeto.
+            </p>
+            <span class="service-arrow">↗</span>
+          </article>
+
+          <article class="service reveal">
+            <span class="service-number">04</span>
+            <h3>Publicação e hospedagem</h3>
+            <p>
+              Auxílio na publicação do site, escolha de hospedagem,
+              configuração de domínio e orientações de manutenção.
+            </p>
+            <span class="service-arrow">↗</span>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- HOSPEDAGEM -->
+    <section class="hosting">
+      <div class="container">
+        <div class="hosting-panel reveal">
+          <div>
+            <div class="eyebrow">03 / Além do desenvolvimento</div>
+            <h2 class="section-title">
+              Da primeira linha de código à <em>internet.</em>
+            </h2>
+
+            <p class="section-copy">
+              Desenvolver é parte do processo. Para que as pessoas acessem
+              seu site, ele precisa ser publicado em uma hospedagem e,
+              se desejado, associado a um domínio personalizado.
+            </p>
+
+            <p class="section-copy">
+              Posso orientar a escolha da solução mais adequada ao seu projeto,
+              considerando orçamento, recursos e facilidade de manutenção.
+            </p>
+          </div>
+
+          <div>
+            <div class="hosting-list">
+              <div class="hosting-item">
+                <span>01</span>
+                <div>
+                  <strong>Publicação online</strong>
+                  <p>Disponibilização dos arquivos em uma plataforma de hospedagem.</p>
+                </div>
+              </div>
+
+              <div class="hosting-item">
+                <span>02</span>
+                <div>
+                  <strong>Domínio personalizado</strong>
+                  <p>Orientação para configurar seu endereço próprio na internet.</p>
+                </div>
+              </div>
+
+              <div class="hosting-item">
+                <span>03</span>
+                <div>
+                  <strong>Orientação e manutenção</strong>
+                  <p>Informações sobre atualizações, renovação e custos recorrentes.</p>
+                </div>
+              </div>
+            </div>
+
+            <p class="hosting-note">
+              O custo de domínio, hospedagem e ferramentas externas depende
+              do fornecedor e do plano escolhido. Esses valores devem ser
+              apresentados separadamente antes da contratação.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PORTFÓLIO -->
+    <section class="portfolio container" id="portfolio">
+      <div class="section-header reveal">
+        <div>
+          <div class="eyebrow">04 / Portfólio</div>
+          <h2 class="section-title">Ideias com <em>identidade.</em></h2>
+        </div>
+        <p class="section-copy">
+          Uma seleção visual de conceitos para diferentes tipos de presença digital.
+          O objetivo é unir estrutura, clareza e personalidade.
+        </p>
+      </div>
+
+      <div class="project-grid">
+        <article class="project-card reveal">
+          <div class="project-art">
+            <div class="art-orb"></div>
+            <div class="mock-site">
+              <div class="mock-top"><span>Personal brand</span><span>001</span></div>
+              <h3 class="mock-title">A presença<br>que <em>permanece.</em></h3>
+              <div class="mock-rule"></div>
+              <p class="mock-text">Uma identidade digital construída para comunicar com precisão.</p>
+            </div>
+          </div>
+          <div class="project-meta">
+            <div>
+              <h3>Personal Portfolio</h3>
+              <p>Portfólio pessoal · Design editorial</p>
+            </div>
+            <span class="project-label">Conceito</span>
+          </div>
+        </article>
+
+        <article class="project-card reveal delay-1">
+          <div class="project-art taupe">
+            <div class="art-orb"></div>
+            <div class="mock-site">
+              <div class="mock-top"><span>Studio identity</span><span>002</span></div>
+              <h3 class="mock-title">Less, but<br><em>better.</em></h3>
+              <div class="mock-rule"></div>
+              <p class="mock-text">Uma experiência minimalista para marcas que valorizam o essencial.</p>
+            </div>
+          </div>
+          <div class="project-meta">
+            <div>
+              <h3>Studio Identity</h3>
+              <p>Site institucional · Direção visual</p>
+            </div>
+            <span class="project-label">Conceito</span>
+          </div>
+        </article>
+
+        <article class="project-card reveal">
+          <div class="project-art stone">
+            <div class="art-orb"></div>
+            <div class="mock-site">
+              <div class="mock-top"><span>Professional</span><span>003</span></div>
+              <h3 class="mock-title">Seu trabalho,<br><em>em evidência.</em></h3>
+              <div class="mock-rule"></div>
+              <p class="mock-text">Uma apresentação profissional com foco na clareza.</p>
+            </div>
+          </div>
+          <div class="project-meta">
+            <div>
+              <h3>Professional Presence</h3>
+              <p>Landing page · Serviços</p>
+            </div>
+            <span class="project-label">Conceito</span>
+          </div>
+        </article>
+
+        <article class="project-card reveal delay-1">
+          <div class="project-art olive">
+            <div class="art-orb"></div>
+            <div class="mock-site">
+              <div class="mock-top"><span>Digital experience</span><span>004</span></div>
+              <h3 class="mock-title">Technology<br>meets <em>purpose.</em></h3>
+              <div class="mock-rule"></div>
+              <p class="mock-text">Funcionalidade e estética em uma experiência responsiva.</p>
+            </div>
+          </div>
+          <div class="project-meta">
+            <div>
+              <h3>Digital Experience</h3>
+              <p>Web design · Interface responsiva</p>
+            </div>
+            <span class="project-label">Conceito</span>
+          </div>
+        </article>
+      </div>
+
+      <p class="portfolio-note">
+        Os projetos acima são demonstrações visuais, não trabalhos de clientes.
+        Substitua-os por projetos reais conforme seu portfólio crescer.
+      </p>
+    </section>
+
+    <!-- PROCESSO -->
+    <section class="process">
+      <div class="container process-grid">
+        <div class="reveal">
+          <div class="eyebrow">05 / Processo</div>
+          <h2 class="section-title">Bem pensado.<br><em>Bem executado.</em></h2>
+          <p class="section-copy">
+            Um processo transparente permite alinhar expectativas,
+            organizar as etapas e construir uma solução coerente com seu objetivo.
+          </p>
+        </div>
+
+        <div class="steps">
+          <article class="step reveal">
+            <span>01</span>
+            <div>
+              <h3>Briefing</h3>
+              <p>Entendimento do objetivo, do público e das necessidades do projeto.</p>
+            </div>
+          </article>
+          <article class="step reveal">
+            <span>02</span>
+            <div>
+              <h3>Estrutura visual</h3>
+              <p>Organização do conteúdo, da navegação e da identidade visual.</p>
+            </div>
+          </article>
+          <article class="step reveal">
+            <span>03</span>
+            <div>
+              <h3>Desenvolvimento</h3>
+              <p>Construção das páginas e implementação das interações necessárias.</p>
+            </div>
+          </article>
+          <article class="step reveal">
+            <span>04</span>
+            <div>
+              <h3>Revisão e publicação</h3>
+              <p>Testes em diferentes dispositivos e preparação para colocar o site no ar.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTATO COM FORMULÁRIO -->
+    <section class="contact" id="contato">
+      <div class="container contact-grid">
+        <div class="reveal">
+          <div class="eyebrow">06 / Contato</div>
+          <h2 class="section-title">
+            Vamos criar algo <em>extraordinário.</em>
+          </h2>
+          <p class="section-copy">
+            Conte um pouco sobre sua ideia. Se você precisa de um portfólio,
+            site institucional ou página para seu negócio, podemos conversar
+            sobre a melhor maneira de desenvolver seu projeto.
+          </p>
+
+          <a
+            class="contact-email"
+            href="mailto:antoniocarlos06b@gmail.com"
+          >antoniocarlos06b@gmail.com ↗</a>
+
+          <p class="section-copy" style="font-size:11px">
+            Prefere seu próprio aplicativo de e-mail? Clique no endereço acima
+            para iniciar uma mensagem.
+          </p>
+        </div>
+
+        <form class="contact-form reveal delay-1" id="contactForm">
+          <h3 class="form-heading">Conte-me sobre seu projeto.</h3>
+
+          <div class="field">
+            <label for="name">Seu nome</label>
+            <input
+              id="name"
+              name="name"
+              type="text"
+              placeholder="Como você se chama?"
+              autocomplete="name"
+              required
+            >
+          </div>
+
+          <div class="field">
+            <label for="senderEmail">Seu e-mail</label>
+            <input
+              id="senderEmail"
+              name="senderEmail"
+              type="email"
+              placeholder="voce@exemplo.com"
+              autocomplete="email"
+              required
+            >
+          </div>
+
+          <div class="field">
+            <label for="projectType">Tipo de projeto</label>
+            <select id="projectType" name="projectType" required>
+              <option value="" disabled selected>Selecione uma opção</option>
+              <option value="Portfólio pessoal">Portfólio pessoal</option>
+              <option value="Site institucional">Site institucional</option>
+              <option value="Landing page">Landing page</option>
+              <option value="Hospedagem e publicação">Hospedagem e publicação</option>
+              <option value="Outro projeto">Outro projeto</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label for="message">Mensagem</label>
+            <textarea
+              id="message"
+              name="message"
+              placeholder="Descreva sua ideia, objetivo ou necessidade..."
+              required
+            ></textarea>
+          </div>
+
+          <button class="button form-submit" type="submit">
+            Preparar e-mail <span class="arrow">↗</span>
+          </button>
+
+          <p class="form-note">
+            Ao continuar, seu aplicativo de e-mail será aberto com a mensagem
+            preenchida. Você ainda precisará confirmar o envio.
+          </p>
+
+          <div class="form-status" id="formStatus" role="status" aria-live="polite"></div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div>
+        <div class="footer-name">Antonio Carlos®</div>
+        <p class="footer-copy">Digital Atelier · Desenvolvimento web</p>
+      </div>
+
+      <div class="footer-right">
+        <a href="mailto:antoniocarlos06b@gmail.com">E-mail ↗</a>
+        <a href="https://github.com/" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+        <a href="#inicio">Voltar ao topo ↑</a>
+      </div>
+
+      <p class="footer-copy">© <span id="year"></span> · Todos os direitos reservados.</p>
+    </div>
+  </footer>
+
+  <button class="back-top" id="backTop" aria-label="Voltar ao início">↑</button>
+
+  <script>
+    // MENU MOBILE
+    const menuToggle = document.getElementById("menuToggle");
+    const navLinks = document.getElementById("navLinks");
+
+    menuToggle.addEventListener("click", () => {
+      const open = navLinks.classList.toggle("open");
+      menuToggle.setAttribute("aria-expanded", String(open));
+      menuToggle.setAttribute("aria-label", open ? "Fechar menu" : "Abrir menu");
+    });
+
+    navLinks.querySelectorAll("a").forEach(link => {
+      link.addEventListener("click", () => {
+        navLinks.classList.remove("open");
+        menuToggle.setAttribute("aria-expanded", "false");
+        menuToggle.setAttribute("aria-label", "Abrir menu");
+      });
+    });
+
+    // ANIMAÇÕES DE ENTRADA
+    const revealElements = document.querySelectorAll(".reveal");
+
+    if ("IntersectionObserver" in window) {
+      const revealObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+            observer.unobserve(entry.target);
+          }
+        });
+      }, {
+        threshold: 0.12,
+        rootMargin: "0px 0px -25px 0px"
+      });
+
+      revealElements.forEach(element => revealObserver.observe(element));
+    } else {
+      revealElements.forEach(element => element.classList.add("visible"));
+    }
+
+    // PROGRESSO DA PÁGINA E BOTÃO VOLTAR AO TOPO
+    const progress = document.getElementById("progress");
+    const backTop = document.getElementById("backTop");
+
+    function updateScrollUI() {
+      const scrollable = document.documentElement.scrollHeight - window.innerHeight;
+      const percentage = scrollable > 0 ? (window.scrollY / scrollable) * 100 : 0;
+
+      progress.style.width = percentage + "%";
+      backTop.classList.toggle("visible", window.scrollY > 500);
+    }
+
+    window.addEventListener("scroll", updateScrollUI, { passive: true });
+    updateScrollUI();
+
+    backTop.addEventListener("click", () => {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+
+    // FORMULÁRIO DE CONTATO
+    // Prepara uma mensagem para o visitante enviar pelo seu aplicativo de e-mail.
+    const contactForm = document.getElementById("contactForm");
+    const formStatus = document.getElementById("formStatus");
+    const recipient = "antoniocarlos06b@gmail.com";
+
+    contactForm.addEventListener("submit", event => {
+      event.preventDefault();
+
+      if (!contactForm.reportValidity()) return;
+
+      const formData = new FormData(contactForm);
+      const name = String(formData.get("name")).trim();
+      const senderEmail = String(formData.get("senderEmail")).trim();
+      const projectType = String(formData.get("projectType")).trim();
+      const message = String(formData.get("message")).trim();
+
+      const subject = `Contato pelo portfólio — ${projectType}`;
+
+      const body = [
+        "Olá, Antonio Carlos!",
+        "",
+        "Meu nome: " + name,
+        "Meu e-mail: " + senderEmail,
+        "Tipo de projeto: " + projectType,
+        "",
+        "Mensagem:",
+        message,
+        "",
+        "Enviado pelo formulário do seu portfólio."
+      ].join("\n");
+
+      const mailtoURL =
+        "mailto:" + recipient +
+        "?subject=" + encodeURIComponent(subject) +
+        "&body=" + encodeURIComponent(body);
+
+      formStatus.textContent =
+        "Seu aplicativo de e-mail será aberto com a mensagem preenchida. Revise os dados e clique em Enviar para encaminhá-la.";
+      formStatus.classList.add("show");
+
+      window.location.href = mailtoURL;
+    });
+
+    // ANO AUTOMÁTICO
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
